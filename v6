@@ -1,0 +1,33 @@
+import turtle
+
+def draw_mandala():
+    screen = turtle.Screen()
+    screen.bgcolor("black")  # Set background color to black
+
+    pen = turtle.Turtle()
+    pen.speed(0)  # Fastest drawing speed
+
+    # List of colors for the mandala
+    colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+    def draw_circle(radius):
+        pen.penup()
+        pen.goto(0, -radius)
+        pen.pendown()
+        pen.circle(radius)
+
+    def draw_pattern():
+        for i in range(36):  # Draw 36 circles
+            pen.color(colors[i % 6])
+            draw_circle(100)
+            pen.right(10)
+
+    # Draw the mandala pattern
+    for _ in range(12):  # Draw 12 layers of the pattern
+        draw_pattern()
+        pen.right(30)
+
+    screen.mainloop()
+
+# Draw the mandala
+draw_mandala()
