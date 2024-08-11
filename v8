@@ -1,0 +1,12 @@
+def draw_car():
+    car_art = """
+      ______
+  __//__|__\\__
+ |  _        _ `|
+|_(_)______(_)_|
+  (o)------(o)
+    """
+    print(car_art)
+
+# Draw the car
+draw_car()
