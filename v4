@@ -1,0 +1,17 @@
+import turtle
+
+def draw_spiral_of_squares():
+    screen = turtle.Screen()
+    screen.bgcolor("white")
+
+    pen = turtle.Turtle()
+    pen.speed(0)
+
+    for i in range(100):
+        pen.forward(i * 10)
+        pen.right(90)
+
+    screen.mainloop()
+
+# Draw the spiral of squares
+draw_spiral_of_squares()
