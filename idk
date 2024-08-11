@@ -1,0 +1,71 @@
+import turtle
+
+def draw_book_cover(pen, color, width, height, x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.color(color)
+    pen.begin_fill()
+    for _ in range(2):
+        pen.forward(width)
+        pen.right(90)
+        pen.forward(height)
+        pen.right(90)
+    pen.end_fill()
+
+def draw_book_pages(pen, width, height, x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.color("white")
+    pen.begin_fill()
+    for _ in range(2):
+        pen.forward(width / 2)
+        pen.right(90)
+        pen.forward(height)
+        pen.right(90)
+    pen.end_fill()
+
+def draw_book():
+    screen = turtle.Screen()
+    screen.bgcolor("lightgray")  # Set background color
+
+    pen = turtle.Turtle()
+    pen.speed(2)  # Set drawing speed
+
+    # Draw the book cover
+    draw_book_cover(pen, "blue", 200, 150, -100, 0)
+    draw_book_cover(pen, "darkblue", 10, 150, -110, 0)
+
+    # Draw the pages
+    draw_book_pages(pen, 200, 150, -100, 0)
+
+    # Draw the other page (showing open book)
+    pen.penup()
+    pen.goto(-100, 0)
+    pen.pendown()
+    pen.setheading(90)
+    pen.color("white")
+    pen.begin_fill()
+    pen.goto(-50, 75)
+    pen.goto(50, 75)
+    pen.goto(100, 0)
+    pen.end_fill()
+
+    # Draw the book binding
+    pen.penup()
+    pen.goto(-50, 75)
+    pen.pendown()
+    pen.color("darkblue")
+    pen.begin_fill()
+    pen.goto(-50, -75)
+    pen.goto(50, -75)
+    pen.goto(50, 75)
+    pen.end_fill()
+
+    # Hide the turtle and display the drawing
+    pen.hideturtle()
+    screen.mainloop()
+
+# Draw the book
+draw_book()
