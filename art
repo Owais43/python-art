@@ -1,0 +1,20 @@
+import turtle
+
+def draw_spiral():
+    screen = turtle.Screen()
+    screen.bgcolor("black")  # Set background color
+
+    pen = turtle.Turtle()
+    pen.speed(0)  # Fastest drawing speed
+
+    colors = ["red", "purple", "blue", "green", "orange", "yellow"]
+
+    for i in range(360):
+        pen.color(colors[i % 6])
+        pen.forward(i)
+        pen.left(59)
+
+    screen.mainloop()
+
+# Draw the spiral
+draw_spiral()
