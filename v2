@@ -1,0 +1,37 @@
+import turtle
+
+def draw_smiley():
+    screen = turtle.Screen()
+    screen.bgcolor("white")  # Set background color
+
+    pen = turtle.Turtle()
+    pen.speed(3)
+
+    # Draw face
+    pen.penup()
+    pen.goto(0, -100)
+    pen.pendown()
+    pen.circle(100)
+
+    # Draw eyes
+    pen.penup()
+    pen.goto(-40, 40)
+    pen.pendown()
+    pen.circle(15)
+
+    pen.penup()
+    pen.goto(40, 40)
+    pen.pendown()
+    pen.circle(15)
+
+    # Draw mouth
+    pen.penup()
+    pen.goto(-40, -20)
+    pen.pendown()
+    pen.setheading(-60)
+    pen.circle(50, 120)
+
+    screen.mainloop()
+
+# Draw the smiley face
+draw_smiley()
