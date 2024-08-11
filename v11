@@ -1,0 +1,73 @@
+import turtle
+
+def draw_square(pen, color, size, x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.color(color)
+    pen.begin_fill()
+    for _ in range(4):
+        pen.forward(size)
+        pen.right(90)
+    pen.end_fill()
+
+def draw_triangle(pen, color, size, x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.color(color)
+    pen.begin_fill()
+    for _ in range(3):
+        pen.forward(size)
+        pen.left(120)
+    pen.end_fill()
+
+def draw_house():
+    screen = turtle.Screen()
+    screen.bgcolor("lightblue")  # Set background color to light blue
+
+    pen = turtle.Turtle()
+    pen.speed(2)  # Set drawing speed
+
+    # Draw the base of the house
+    draw_square(pen, "brown", 200, -100, -100)
+
+    # Draw the roof
+    draw_triangle(pen, "darkred", 200, -100, 100)
+
+    # Draw windows
+    draw_square(pen, "lightyellow", 50, -75, -25)
+    draw_square(pen, "lightyellow", 50, 25, -25)
+
+    # Draw the door
+    draw_square(pen, "orange", 50, -25, -100)
+
+    # Draw the door knob
+    pen.penup()
+    pen.goto(10, -75)
+    pen.pendown()
+    pen.color("black")
+    pen.begin_fill()
+    pen.circle(5)
+    pen.end_fill()
+
+    # Draw the chimney
+    pen.penup()
+    pen.goto(-50, 75)
+    pen.pendown()
+    pen.color("darkred")
+    pen.begin_fill()
+    pen.setheading(90)
+    pen.forward(40)
+    pen.right(90)
+    pen.forward(20)
+    pen.right(90)
+    pen.forward(40)
+    pen.end_fill()
+
+    # Hide the turtle and display the drawing
+    pen.hideturtle()
+    screen.mainloop()
+
+# Draw the house
+draw_house()
