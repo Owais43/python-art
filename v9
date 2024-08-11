@@ -1,0 +1,43 @@
+import turtle
+
+def draw_flower():
+    screen = turtle.Screen()
+    screen.bgcolor("white")  # Set the background color
+
+    pen = turtle.Turtle()
+    pen.speed(0)  # Fastest drawing speed
+
+    # Define colors for the petals
+    colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+    # Draw petals
+    def draw_petal():
+        pen.color("pink")
+        pen.begin_fill()
+        pen.circle(100, 60)  # Draw an arc with a radius of 100 and angle of 60 degrees
+        pen.left(120)
+        pen.circle(100, 60)  # Draw the other side of the petal
+        pen.left(120)
+        pen.end_fill()
+
+    for color in colors:
+        pen.color(color)
+        draw_petal()
+        pen.right(360 / len(colors))  # Rotate to position for the next petal
+
+    # Draw the center of the flower
+    pen.penup()
+    pen.goto(0, -30)
+    pen.pendown()
+    pen.color("yellow")
+    pen.begin_fill()
+    pen.circle(30)
+    pen.end_fill()
+
+    # Hide the turtle and display the drawing
+    pen.hideturtle()
+    screen.mainloop()
+
+# Draw the flower
+draw_flower()
+v
