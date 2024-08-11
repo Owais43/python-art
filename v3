@@ -1,0 +1,26 @@
+import turtle
+
+def draw_flower():
+    screen = turtle.Screen()
+    screen.bgcolor("black")
+
+    pen = turtle.Turtle()
+    pen.speed(0)
+    colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+    for _ in range(36):
+        pen.color(colors[_ % 6])
+        pen.forward(100)
+        pen.right(45)
+        pen.forward(100)
+        pen.right(45)
+        pen.forward(100)
+        pen.right(45)
+        pen.forward(100)
+        pen.right(45)
+        pen.right(10)
+
+    screen.mainloop()
+
+# Draw the flower
+draw_flower()
