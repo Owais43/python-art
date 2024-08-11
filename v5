@@ -1,0 +1,22 @@
+
+import turtle
+
+def draw_hexagon_pattern():
+    screen = turtle.Screen()
+    screen.bgcolor("white")
+
+    pen = turtle.Turtle()
+    pen.speed(0)
+    colors = ["red", "blue", "green", "yellow", "purple", "orange"]
+
+    for i in range(36):
+        pen.color(colors[i % 6])
+        for _ in range(6):
+            pen.forward(100)
+            pen.right(60)
+        pen.right(10)
+
+    screen.mainloop()
+
+# Draw the hexagon pattern
+draw_hexagon_pattern()
