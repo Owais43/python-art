@@ -1,0 +1,80 @@
+import turtle
+
+def draw_flower(pen, x, y):
+    # Draw a flower at position (x, y)
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+
+    colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+    def draw_petal():
+        pen.color("pink")
+        pen.begin_fill()
+        pen.circle(50, 60)
+        pen.left(120)
+        pen.circle(50, 60)
+        pen.left(120)
+        pen.end_fill()
+
+    for color in colors:
+        pen.color(color)
+        draw_petal()
+        pen.right(360 / len(colors))
+
+    pen.penup()
+    pen.goto(x, y - 20)
+    pen.pendown()
+    pen.color("yellow")
+    pen.begin_fill()
+    pen.circle(20)
+    pen.end_fill()
+
+def draw_sun(pen):
+    # Draw the sun in the sky
+    pen.penup()
+    pen.goto(-200, 150)
+    pen.pendown()
+    pen.color("yellow")
+    pen.begin_fill()
+    pen.circle(50)
+    pen.end_fill()
+
+def draw_grass(pen):
+    # Draw the grass at the bottom of the screen
+    pen.penup()
+    pen.goto(-400, -200)
+    pen.pendown()
+    pen.color("green")
+    pen.begin_fill()
+    pen.forward(800)
+    pen.right(90)
+    pen.forward(100)
+    pen.right(90)
+    pen.forward(800)
+    pen.right(90)
+    pen.forward(100)
+    pen.end_fill()
+
+def draw_garden():
+    screen = turtle.Screen()
+    screen.bgcolor("skyblue")  # Set background color to sky blue
+
+    pen = turtle.Turtle()
+    pen.speed(0)  # Fastest drawing speed
+
+    draw_grass(pen)
+
+    # Draw multiple flowers
+    positions = [(-150, -50), (0, -50), (150, -50), (-100, -150), (100, -150)]
+    for pos in positions:
+        draw_flower(pen, pos[0], pos[1])
+
+    draw_sun(pen)
+
+    # Hide the turtle and display the drawing
+    pen.hideturtle()
+    screen.mainloop()
+
+# Draw the garden
+draw_garden()
