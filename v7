@@ -1,0 +1,58 @@
+import turtle
+
+def draw_car():
+    screen = turtle.Screen()
+    screen.bgcolor("white")  # Set the background color
+
+    pen = turtle.Turtle()
+    pen.speed(2)  # Set drawing speed
+
+    # Draw the body of the car
+    pen.penup()
+    pen.goto(-100, 0)
+    pen.pendown()
+    pen.color("blue")
+    pen.begin_fill()
+    pen.forward(200)  # Draw the base
+    pen.left(90)
+    pen.forward(50)   # Draw the side
+    pen.left(90)
+    pen.forward(200)  # Draw the top
+    pen.left(90)
+    pen.forward(50)   # Draw the other side
+    pen.left(90)
+    pen.end_fill()
+
+    # Draw the windows
+    pen.penup()
+    pen.goto(-80, 50)
+    pen.pendown()
+    pen.color("lightblue")
+    pen.begin_fill()
+    pen.setheading(0)
+    pen.forward(80)
+    pen.right(90)
+    pen.forward(30)
+    pen.right(90)
+    pen.forward(80)
+    pen.right(90)
+    pen.forward(30)
+    pen.end_fill()
+
+    # Draw the wheels
+    def draw_wheel(x, y):
+        pen.penup()
+        pen.goto(x, y)
+        pen.pendown()
+        pen.color("black")
+        pen.begin_fill()
+        pen.circle(20)
+        pen.end_fill()
+
+    draw_wheel(-70, -20)
+    draw_wheel(50, -20)
+
+    screen.mainloop()
+
+# Draw the car
+draw_car()
